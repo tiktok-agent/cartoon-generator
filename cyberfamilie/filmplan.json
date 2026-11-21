@@ -1,0 +1,29 @@
+{
+  "titel": "Cyberfamilie – De mysterieuze knop",
+  "doelduur_seconden": 8,
+  "vorm": "filmische semi-realistische 3D-tekenfilm met game-cinematic belichting",
+  "beeldformaat": "9:16",
+  "bronbeeld": "assets/neonfamilie.png",
+  "productievoorwaarden": [
+    "100% gratis: geen abonnementen, betaalde credits of betaalde API",
+    "Echte gegenereerde beweging over opeenvolgende frames; geen stilstaande foto's met zoom/pan",
+    "Natuurlijke loopsnelheid, armbeweging, lichaamshouding en gezichtsreacties",
+    "Geen slowmotion; geen voortdurend open-dicht klappende mond",
+    "Geen upload naar TikTok of andere publicatie zonder toestemming"
+  ],
+  "shots": [
+    {
+      "id": "shot_01",
+      "duur_seconden": 4.0,
+      "prompt": "One continuous cinematic medium-wide shot in a neon-lit futuristic city, realistic high-quality stylized 3D animated feature film mixed with game cinematic realism. Keep the same three identifiable characters as in the reference image: muscular bearded father wearing a dark vest and white shirt, fashionable dark-haired mother in a pink-purple jacket, smiling young boy in a jacket with glowing headphones. A large mysterious glowing RED BUTTON rises from a futuristic pedestal at the edge of the pavement. The father UNFOLDS HIS ARMS and WALKS TWO NATURAL STEPS toward the button. His weight shifts believably, legs and hands articulate fully, feet touch the ground without skating. The son quickly stands and turns to watch him, the mother notices the button, eyes widening. Normal real-time speed, full-body natural character animation, expressive faces, detailed cloth and hair secondary motion, cinematic lighting, wet reflective ground, smooth tracking camera, 24fps animated movie quality. IMPORTANT: actual articulated body motion; no still-image zoom, no panning across a photograph, no morphing, no duplicated limbs, no slow motion, no captions, no speech or lip flapping."
+    },
+    {
+      "id": "shot_02",
+      "duur_seconden": 4.0,
+      "prompt": "One continuous cinematic shot of the same neon futuristic street and same three identifiable 3D animated family characters from the reference. An oversized mysterious glowing RED BUTTON on a pedestal is clearly visible. The young boy RUNS with natural energetic running footsteps toward the red button, body leans forward, legs stride and arms swing in a believable walk-run cycle. The bearded father swivels his torso and stretches out one arm to stop him. The dark-haired mother REACTS WITH SURPRISE, takes a step backward and raises her hand near her face. Movements are fully articulated, real-time speed, physically believable foot contact and full body acting, vibrant high-budget semi-realistic 3D cartoon mixed with cinematic game realism, expressive facial animation, neon reflections on wet pavement, smooth controlled camera move. NO slow motion, NO photo slideshow, NO random open-close mouth loop, NO static poses, NO unnatural anatomy, NO on-screen text."
+    }
+  ],
+  "dialogen_nl": [
+    {"karakter":"mama","regel":"Niet op die knop drukken!","voorwaarde":"alleen toevoegen nadat Nederlandse audio en bijpassende visemen/lipsync echt werken"}
+  ]
+}
