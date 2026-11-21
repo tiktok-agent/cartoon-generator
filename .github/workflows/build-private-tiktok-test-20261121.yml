@@ -1,0 +1,29 @@
+name: Build public test-video source for private TikTok test
+on:
+  push:
+    paths:
+      - '.github/workflows/build-private-tiktok-test-20261121.yml'
+permissions:
+  contents: write
+jobs:
+  make-video:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate generic test video
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          mkdir -p test-assets
+          ffmpeg -y -hide_banner -loglevel error \
+            -f lavfi -i 'color=c=0x12182D:s=540x960:r=24:d=7' \
+            -f lavfi -i 'anullsrc=channel_layout=stereo:sample_rate=44100' \
+            -vf "drawbox=x=35:y=260:w=470:h=400:color=0x28355E:t=fill,drawbox=x=35:y=260:w=470:h=12:color=0x22D3EE:t=fill,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='TESTVIDEO':fontcolor=white:fontsize=62:x=(w-text_w)/2:y=355,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='ChatGPT + Metricool':fontcolor=0xE2E8F0:fontsize=28:x=(w-text_w)/2:y=457,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='ALLEEN VOOR MIJ':fontcolor=0x67E8F9:fontsize=28:x=(w-text_w)/2:y=527,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='21-11-2026':fontcolor=0xCBD5E1:fontsize=22:x=(w-text_w)/2:y=595" \
+            -t 7 -c:v libx264 -pix_fmt yuv420p -preset veryfast -crf 25 -c:a aac -b:a 48k -shortest -movflags +faststart \
+            test-assets/metricool-tiktok-test-20261121.mp4
+          test -s test-assets/metricool-tiktok-test-20261121.mp4
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add test-assets/metricool-tiktok-test-20261121.mp4
+          git commit -m "Add generic video source for private Metricool TikTok test"
+          git push
