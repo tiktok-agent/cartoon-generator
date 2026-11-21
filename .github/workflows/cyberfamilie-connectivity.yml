@@ -1,0 +1,36 @@
+name: Cyberfamilie - controleer gratis GPU-demos
+
+on:
+  push:
+    branches:
+      - feature/cyberfamilie-global-free-video-pipeline
+    paths:
+      - '.github/workflows/cyberfamilie-connectivity.yml'
+      - 'cyberfamilie/gpu_connection_check.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cyberfamilie-connectivity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-free-public-apis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Alleen publieke API-metadata uitlezen (geen GPU-generaties)
+        run: python cyberfamilie/gpu_connection_check.py --json cyberfamilie-connection-report.json
+      - name: Rapport bewaren
+        uses: actions/upload-artifact@v4
+        with:
+          name: cyberfamilie-connection-report
+          path: cyberfamilie-connection-report.json
+          if-no-files-found: error
+          retention-days: 1
