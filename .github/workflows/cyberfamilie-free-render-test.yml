@@ -1,0 +1,33 @@
+name: Cyberfamilie - eenmalige gratis GPU-proef
+
+on:
+  push:
+    branches:
+      - feature/cyberfamilie-global-free-video-pipeline
+    paths:
+      - '.github/workflows/cyberfamilie-free-render-test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  one-free-gpu-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Installeer gratis Gradio client
+        run: python -m pip install --disable-pip-version-check 'gradio_client>=1.4,<3' 'Pillow>=10'
+      - name: Vraag exact één gratis Wan AI-testvideo aan
+        run: python cyberfamilie/render_free_smoke.py
+      - name: Bewaar echte video alleen indien gegenereerd
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wan-free-gpu-test-video
+          path: gpu-smoke-output/wan_free_gpu_test.mp4
+          retention-days: 1
