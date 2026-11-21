@@ -43,3 +43,14 @@ python pipeline.py assemble
 - Er worden geen betaalmiddelen aangeroepen of credentials opgeslagen.
 - De gebruiker moet bij elke derde partij toestemming/licentie voor hun diensten zelf controleren.
 - De publieke gratis demos kunnen stoppen, veranderen of andere inputparameters krijgen. Het programma stopt dan met een duidelijke melding.
+
+## Echte gratis GPU-koppeling — 21 november 2026
+De GitHub Actions-netwerktest heeft de Gradio API's van **Wan 2.2, HunyuanVideo 1.5 en LTX-2.3** daadwerkelijk bereikt:
+https://github.com/tiktok-agent/cartoon-generator/actions/runs/44925020645
+
+Een aparte eenmalige **anonieme gratis** proefrender met een **kunstmatig robotbeeld** heeft via Wan 2.2 een echte H.264 MP4 geproduceerd (560×832, 25 frames bij 16 fps, circa 1,56 seconde). Bewijs:
+https://github.com/tiktok-agent/cartoon-generator/actions/runs/44925192265
+
+Bestanden: `gpu_connection_check.py` en `render_free_smoke.py`; workflows in `.github/workflows`.
+
+De originele Cyberfamilie-foto is **niet op de publieke GitHub geplaatst** en niet naar de gratis proefrender gestuurd. Het originele verhaal is nog niet geproduceerd; er is nog geen bruikbare Nederlandse lipsync. Andere cloud-GPU's vereisen eigen accounts en zijn geen actieve nodes.
